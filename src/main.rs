@@ -21,6 +21,7 @@ fn main() {
         .add_startup_system(setup_scene)
         .add_startup_system(configure_global_state)
         .add_system(camera_controls)
+        .add_system(bevy::window::close_on_esc)
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             window: WindowDescriptor {
                 title: "3D Particle simulation".to_string(),
@@ -214,7 +215,7 @@ fn configure_global_state(mut state: ResMut<GlobalState>) {
 }
 
 fn ui(mut egui_context: ResMut<EguiContext>, mut state: ResMut<GlobalState>) {
-    egui::Window::new("Hello world")
+    egui::Window::new("Menu")
         .default_size([300.0, 100.0])
         .show(egui_context.ctx_mut(), |ui| {
             // Slider
