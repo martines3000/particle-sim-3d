@@ -9,8 +9,6 @@ RUN apt-get update && apt-get install -y clang
 WORKDIR /app
 
 # Install trunk
-# RUN wget -qO- https://github.com/thedodd/trunk/releases/download/v0.16.0/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf- && \
-#     mv trunk /usr/local/bin
 RUN cargo install --locked --version 0.16.0 trunk
 
 COPY . .
