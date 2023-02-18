@@ -3,7 +3,6 @@ use std::f32::consts::PI;
 use bevy::{
     diagnostic::{Diagnostics, FrameTimeDiagnosticsPlugin},
     prelude::*,
-    window::PresentMode,
 };
 mod particle;
 mod world;
@@ -21,13 +20,13 @@ fn main() {
         .add_startup_system(setup_scene)
         .add_startup_system(configure_global_state)
         .add_system(camera_controls)
-        .add_system(bevy::window::close_on_esc)
         .add_plugins(DefaultPlugins.set(WindowPlugin {
             window: WindowDescriptor {
                 title: "3D Particle simulation".to_string(),
-                width: 500.0,
-                height: 500.0,
-                present_mode: PresentMode::AutoNoVsync,
+                width: 1280.,
+                height: 720.,
+                canvas: Some("#bevy".to_owned()),
+                fit_canvas_to_parent: true,
                 ..default()
             },
             ..default()
